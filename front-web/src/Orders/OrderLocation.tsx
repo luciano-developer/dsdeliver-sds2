@@ -5,7 +5,7 @@ import AsyncSelect from "react-select/async";
 import { fetchLocalMapBox } from "../api";
 import { handleInputChange } from "react-select/src/utils";
 import { type } from "os";
-import { OrderLocationdata } from "./types";
+import { OrderLocationData } from "./types";
 
 const initialPosition = {
   lat: -15.8361603,
@@ -21,11 +21,11 @@ type Place = {
   };
 };
 
-type Props={
-  onChangeLocation:(Location:OrderLocationdata) =>void;
-}
+type Props = {
+  onChangeLocation: (Location: OrderLocationData) => void;
+};
 
-function OrderLocation({onChangeLocation}: Props) {
+function OrderLocation({ onChangeLocation }: Props) {
   const [address, setAddress] = useState<Place>({
     position: initialPosition,
   });
@@ -72,15 +72,18 @@ function OrderLocation({onChangeLocation}: Props) {
             onChange={(value) => handleChangeSelect(value as Place)}
           />
         </div>
-        <MapContainer center={address.position} zoom={15} key={address.position.lat} scrollWheelZoom>
+        <MapContainer
+          center={address.position}
+          zoom={15}
+          key={address.position.lat}
+          scrollWheelZoom
+        >
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <Marker position={address.position}>
-            <Popup>
-              {address.label}
-            </Popup>
+            <Popup>{address.label}</Popup>
           </Marker>
         </MapContainer>
       </div>
