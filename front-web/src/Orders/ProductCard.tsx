@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import { type } from "os";
 import { Product } from "./types";
 import { formatPrice } from "./helpers";
 

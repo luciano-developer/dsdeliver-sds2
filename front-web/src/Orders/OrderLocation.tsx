@@ -3,8 +3,6 @@ import "./style.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import AsyncSelect from "react-select/async";
 import { fetchLocalMapBox } from "../api";
-import { handleInputChange } from "react-select/src/utils";
-import { type } from "os";
 import { OrderLocationData } from "./types";
 
 const initialPosition = {
